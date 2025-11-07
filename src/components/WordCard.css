@@ -237,11 +237,11 @@
 
 /* Timer Styles */
 .timer-container {
-  margin-bottom: 25px;
-  background: white;
-  border-radius: 15px;
+  margin-bottom: 20px;
   padding: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
 }
 
 .timer-display {
@@ -250,9 +250,9 @@
   justify-content: center;
   gap: 10px;
   margin-bottom: 10px;
-  font-weight: 600;
   font-size: 1.2rem;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  color: white;
 }
 
 .timer-icon {
@@ -261,6 +261,15 @@
 
 .timer-text {
   color: #4a5568;
+}
+
+.timer-warning {
+  color: #ff6b6b !important;
+  animation: pulse 1s infinite;
+}
+
+.timer-expired {
+  color: #e74c3c !important;
 }
 
 .timer-warning .timer-text {
@@ -275,7 +284,7 @@
 
 .timer-progress {
   height: 8px;
-  border-radius: 8px;
+  border-radius: 4px;
   background: #e2e8f0;
 }
 
@@ -286,7 +295,7 @@
 
 @keyframes pulse {
   0% { opacity: 1; }
-  50% { opacity: 0.5; }
+  50% { opacity: 0.6; }
   100% { opacity: 1; }
 }
 
@@ -299,6 +308,22 @@
     flex-direction: column;
     align-items: stretch;
     text-align: center;
+    gap: 10px;
+  }
+  
+  .header-controls {
+    justify-content: center;
+  }
+  
+  .theme-badge,
+  .score-info {
+    text-align: center;
+  }
+  
+  .back-to-home-btn {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
   }
   
   .word-card-body {

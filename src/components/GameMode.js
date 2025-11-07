@@ -1,63 +1,176 @@
-import React from 'react';
-import { Card, Button, Row, Col } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Card, Button, Form, Row, Col } from 'react-bootstrap';
 import './GameMode.css';
 
-const GameMode = ({ onModeSelect, onBack }) => {
-  const modes = [
-    {
-      id: 'solo',
-      title: '🎮 Solo',
-      description: 'Jogue sozinho e teste seus conhecimentos!',
-      color: '#8B5CF6',
-      gradient: 'linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%)'
-    },
-    {
-      id: 'team',
-      title: '👥 Equipe',
-      description: 'Jogue em equipe e compartilhe a diversão!',
-      color: '#10B981',
-      gradient: 'linear-gradient(135deg, #10B981 0%, #059669 100%)'
+const GameMode = ({ onModeSelect }) => {
+  const [selectedMode, setSelectedMode] = useState('solo');
+  const [players, setPlayers] = useState([
+    { id: 1, name: '' },
+    { id: 2, name: '' }
+  ]);
+  const [turnBased, setTurnBased] = useState(true);
+
+  const addPlayer = () => {
+    const newId = Math.max(...players.map(p => p.id)) + 1;
+    setPlayers([...players, { id: newId, name: '' }]);
+  };
+
+  const removePlayer = (id) => {
+    if (players.length > 2) {
+      setPlayers(players.filter(p => p.id !== id));
     }
-  ];
+  };
+
+  const updatePlayerName = (id, name) => {
+    setPlayers(players.map(p => 
+      p.id === id ? { ...p, name } : p
+    ));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if (selectedMode === 'solo') {
+      onModeSelect({
+        mode: 'solo',
+        turnBased: false,
+        players: []
+      });
+    } else {
+      const validPlayers = players.filter(p => p.name.trim());
+      
+      if (validPlayers.length < 2) {
+        alert('Por favor, digite pelo menos 2 nomes de jogadores!');
+        return;
+      }
+      
+      onModeSelect({
+        mode: 'duelo',
+        turnBased,
+        players: validPlayers.map(p => ({ name: p.name.trim(), score: 0 }))
+      });
+    }
+  };
 
   return (
-    <div className="game-mode">
-      <div className="text-center mb-4">
-        <h2>
-          <span className="emoji">🎯</span> Como você quer jogar?
-        </h2>
-        <p className="subtitle">Escolha o modo de jogo que preferir</p>
-      </div>
-      
-      <Row className="justify-content-center g-4">
-        {modes.map((mode) => (
-          <Col key={mode.id} xs={12} sm={6} md={5}>
-            <Card 
-              className="mode-card"
-              style={{ background: mode.gradient }}
-              onClick={() => onModeSelect(mode.id)}
-            >
-              <Card.Body className="text-center text-white">
-                <div className="mode-title">{mode.title}</div>
-                <div className="mode-description">{mode.description}</div>
-                <Button 
-                  variant="light" 
-                  size="lg" 
-                  className="mode-button mt-3"
+    <div className="game-mode-container">
+      <Card className="game-mode-card">
+        <Card.Header className="game-mode-header">
+          <h2 className="mode-title">
+            🎮 Modo de Jogo
+          </h2>
+          <p className="mode-subtitle">Escolha como você quer jogar!</p>
+        </Card.Header>
+
+        <Card.Body className="game-mode-body">
+          <Form onSubmit={handleSubmit}>
+            <Row className="mode-selection mb-4">
+              <Col xs={12} md={6}>
+                <div 
+                  className={`mode-option ${selectedMode === 'solo' ? 'selected' : ''}`}
+                  onClick={() => setSelectedMode('solo')}
                 >
-                  Selecionar
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-      
-      <div className="text-center mt-4">
-        <Button variant="outline-secondary" onClick={onBack}>
-          <i className="bi bi-arrow-left"></i> Voltar aos Temas
-        </Button>
-      </div>
+                  <div className="mode-icon">🧠</div>
+                  <h4>Solo</h4>
+                  <p>Teste seu conhecimento individualmente</p>
+                </div>
+              </Col>
+              <Col xs={12} md={6}>
+                <div 
+                  className={`mode-option ${selectedMode === 'duelo' ? 'selected' : ''}`}
+                  onClick={() => setSelectedMode('duelo')}
+                >
+                  <div className="mode-icon">⚔️</div>
+                  <h4>Duelo</h4>
+                  <p>Desafie um amigo em uma competição</p>
+                </div>
+              </Col>
+            </Row>
+
+            {selectedMode === 'duelo' && (
+              <div className="duelo-settings">
+                <div className="players-section mb-4">
+                  <div className="section-header">
+                    <h5 className="section-title">👥 Jogadores</h5>
+                    <Button
+                      variant="outline-primary"
+                      size="sm"
+                      onClick={addPlayer}
+                      className="add-player-btn"
+                    >
+                      ➕ Adicionar Jogador
+                    </Button>
+                  </div>
+                  
+                  <Row className="g-3">
+                    {players.map((player, index) => (
+                      <Col key={player.id} xs={12} md={6} lg={4}>
+                        <div className="player-card">
+                          <div className="player-header">
+                            <span className="player-number">Jogador {index + 1}</span>
+                            {players.length > 2 && (
+                              <Button
+                                variant="outline-danger"
+                                size="sm"
+                                onClick={() => removePlayer(player.id)}
+                                className="remove-btn"
+                              >
+                                ❌
+                              </Button>
+                            )}
+                          </div>
+                          <Form.Control
+                            type="text"
+                            placeholder={`Nome do jogador ${index + 1}`}
+                            value={player.name}
+                            onChange={(e) => updatePlayerName(player.id, e.target.value)}
+                            className="player-input"
+                          />
+                        </div>
+                      </Col>
+                    ))}
+                  </Row>
+                </div>
+
+                <Row className="turn-settings mb-4">
+                  <Col>
+                    <Form.Check
+                      type="checkbox"
+                      id="turn-based"
+                      label="🔄 Jogo por turnos (cada jogador responde uma pergunta por vez)"
+                      checked={turnBased}
+                      onChange={(e) => setTurnBased(e.target.checked)}
+                      className="turn-checkbox"
+                    />
+                    <div className="turn-explanation">
+                      {turnBased ? (
+                        <small className="text-muted">
+                          ⏳ Os jogadores se alternarão a cada pergunta
+                        </small>
+                      ) : (
+                        <small className="text-muted">
+                          🏃‍♂️ Ambos os jogadores podem responder cada pergunta
+                        </small>
+                      )}
+                    </div>
+                  </Col>
+                </Row>
+              </div>
+            )}
+
+            <div className="mode-actions">
+              <Button
+                type="submit"
+                variant="primary"
+                size="lg"
+                className="start-game-btn"
+              >
+                🚀 Iniciar Jogo
+              </Button>
+            </div>
+          </Form>
+        </Card.Body>
+      </Card>
     </div>
   );
 };

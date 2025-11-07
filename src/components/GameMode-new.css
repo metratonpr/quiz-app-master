@@ -1,0 +1,173 @@
+.game-mode-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.game-mode-card {
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.game-mode-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 30px;
+  border: none;
+}
+
+.mode-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.mode-subtitle {
+  font-size: 1.1rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.game-mode-body {
+  padding: 40px;
+}
+
+.mode-selection {
+  margin-bottom: 30px;
+}
+
+.mode-option {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 3px solid transparent;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.mode-option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.mode-option.selected {
+  border-color: #667eea;
+  background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+.mode-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.mode-option h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #2d3748;
+}
+
+.mode-option p {
+  color: #718096;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.duelo-settings {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.player-input {
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.player-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.turn-checkbox {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.turn-checkbox .form-check-input {
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 10px;
+}
+
+.turn-explanation {
+  margin-left: 35px;
+}
+
+.mode-actions {
+  text-align: center;
+}
+
+.start-game-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 15px;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+.start-game-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .game-mode-container {
+    padding: 15px;
+  }
+  
+  .game-mode-header {
+    padding: 20px;
+  }
+  
+  .mode-title {
+    font-size: 1.5rem;
+  }
+  
+  .game-mode-body {
+    padding: 20px;
+  }
+  
+  .mode-option {
+    height: auto;
+    min-height: 150px;
+    padding: 20px;
+  }
+  
+  .mode-icon {
+    font-size: 2.5rem;
+  }
+  
+  .duelo-settings {
+    padding: 20px;
+  }
+}

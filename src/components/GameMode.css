@@ -1,88 +1,353 @@
-.game-mode {
-  padding: 20px 0;
-  max-width: 800px;
+.game-mode-container {
+  max-width: 900px;
   margin: 0 auto;
+  padding: 20px;
 }
 
-.game-mode h2 {
-  color: #2d3748;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.game-mode .emoji {
-  font-size: 1.5em;
-  margin-right: 10px;
-}
-
-.subtitle {
-  color: #718096;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-}
-
-.mode-card {
+.game-mode-card {
   border: none;
-  border-radius: 20px;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  height: 200px;
 }
 
-.mode-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-}
-
-.mode-card .card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
+.game-mode-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
   padding: 30px;
+  border: none;
 }
 
 .mode-title {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.mode-description {
-  font-size: 1rem;
+.mode-subtitle {
+  font-size: 1.1rem;
+  margin: 0;
   opacity: 0.9;
+}
+
+.game-mode-body {
+  padding: 40px;
+}
+
+.mode-selection {
+  margin-bottom: 30px;
+}
+
+/* Opções de modo com visual de card */
+.mode-option {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 3px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-bottom: 20px;
-  line-height: 1.4;
+  position: relative;
+  overflow: hidden;
 }
 
-.mode-button {
-  border-radius: 25px;
+.mode-option::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mode-option:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border-color: #667eea;
+}
+
+.mode-option:hover::before {
+  opacity: 1;
+}
+
+.mode-option.selected {
+  border-color: #667eea;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+}
+
+.mode-option.selected::before {
+  display: none;
+}
+
+.mode-option.selected h4 {
+  color: white;
+}
+
+.mode-option.selected p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.mode-icon {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.mode-option h4 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #2d3748;
+  transition: color 0.3s ease;
+}
+
+.mode-option p {
+  color: #718096;
+  margin: 0;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+/* Configurações do duelo */
+.duelo-settings {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  border: 2px solid #e2e8f0;
+}
+
+.players-section {
+  margin-bottom: 30px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+}
+
+.add-player-btn {
+  border-radius: 20px;
+  padding: 8px 16px;
   font-weight: 600;
-  padding: 12px 30px;
+  font-size: 0.9rem;
+  border: 2px solid #667eea;
+  color: #667eea;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.add-player-btn:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Cards dos jogadores */
+.player-card {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 15px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.player-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+  transform: translateY(-2px);
+}
+
+.player-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.player-number {
+  font-weight: 700;
+  color: #667eea;
+  font-size: 1rem;
+}
+
+.remove-btn {
   border: none;
-  color: #2d3748 !important;
-  background: rgba(255, 255, 255, 0.9) !important;
-  transition: all 0.2s ease;
+  background: transparent;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
 }
 
-.mode-button:hover {
-  background: rgba(255, 255, 255, 1) !important;
-  transform: scale(1.05);
+.remove-btn:hover {
+  background: #fee;
+  transform: scale(1.1);
 }
 
+.player-input {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.player-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  background: white;
+}
+
+.player-input::placeholder {
+  color: #a0aec0;
+  font-style: italic;
+}
+
+/* Configurações de turno */
+.turn-settings {
+  margin-bottom: 30px;
+}
+
+.turn-checkbox {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.turn-checkbox .form-check-input {
+  width: 1.3em;
+  height: 1.3em;
+  margin-right: 12px;
+  border: 2px solid #667eea;
+}
+
+.turn-checkbox .form-check-input:checked {
+  background-color: #667eea;
+  border-color: #667eea;
+}
+
+.turn-explanation {
+  margin-left: 40px;
+  padding: 15px;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+}
+
+.turn-explanation small {
+  font-size: 0.95rem;
+  color: #4a5568;
+}
+
+/* Botão de iniciar */
+.mode-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.start-game-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 20px;
+  padding: 15px 40px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.start-game-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Mobile responsiveness */
 @media (max-width: 768px) {
-  .mode-card {
-    height: 180px;
+  .game-mode-container {
+    padding: 15px;
+  }
+  
+  .game-mode-header {
+    padding: 20px;
   }
   
   .mode-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
   
-  .mode-description {
-    font-size: 0.9rem;
+  .game-mode-body {
+    padding: 20px;
+  }
+  
+  .mode-option {
+    height: auto;
+    min-height: 150px;
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .mode-icon {
+    font-size: 3rem;
+  }
+  
+  .mode-option h4 {
+    font-size: 1.4rem;
+  }
+  
+  .duelo-settings {
+    padding: 20px;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .add-player-btn {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  
+  .player-card {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .start-game-btn {
+    width: 100%;
+    max-width: 300px;
+    font-size: 1.1rem;
+    padding: 12px 30px;
   }
 }

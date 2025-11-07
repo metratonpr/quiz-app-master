@@ -274,6 +274,156 @@
   transform: translateY(-2px);
 }
 
+/* Estilos para modo duelo */
+.duel-result {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+}
+
+.duel-header {
+  background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+}
+
+.winner-section {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+  border-radius: 20px;
+  border: 3px solid #48bb78;
+}
+
+.winner-announcement {
+  animation: bounce 1s ease infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+.winner-crown {
+  font-size: 4rem;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.winner-name {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #2d3748;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.winner-label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #48bb78;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.winner-score {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #38a169;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.draw-section {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, #fffaf0 0%, #feebc8 100%);
+  border-radius: 20px;
+  border: 3px solid #ed8936;
+}
+
+.draw-icon {
+  font-size: 4rem;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.draw-text {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #2d3748;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.draw-score {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ed8936;
+}
+
+.players-ranking {
+  margin-bottom: 40px;
+}
+
+.ranking-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 25px;
+}
+
+.player-final-score {
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border: 2px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.player-final-score.winner {
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+  border-color: #48bb78;
+  box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.3);
+  transform: scale(1.05);
+}
+
+.player-position {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.player-info {
+  flex-grow: 1;
+}
+
+.player-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 8px;
+}
+
+.player-final-points {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #667eea;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.player-percentage {
+  font-size: 1rem;
+  color: #718096;
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
   .result-card-container {
     padding: 15px;
@@ -311,6 +461,34 @@
   .action-btn {
     padding: 15px;
     font-size: 1rem;
+  }
+
+  .winner-crown,
+  .draw-icon {
+    font-size: 3rem;
+  }
+  
+  .winner-name,
+  .draw-text {
+    font-size: 2rem;
+  }
+  
+  .winner-score {
+    font-size: 2.5rem;
+  }
+  
+  .player-final-score {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .player-position {
+    font-size: 2rem;
+  }
+  
+  .player-final-points {
+    font-size: 2rem;
   }
 }
 

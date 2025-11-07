@@ -1,0 +1,799 @@
+.duel-card-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.duel-card-container-fullscreen {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-sizing: border-box;
+}
+
+.duel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.theme-badge {
+  background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+}
+
+.back-to-home-btn {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.back-to-home-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Placar dos jogadores */
+.scoreboard {
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.player-score {
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border: 3px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 35px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.player-score.active-player {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  border-color: #dc2626;
+  color: white;
+}
+
+.player-score.active-player .player-name {
+  color: white;
+}
+
+.player-score.active-player .player-points {
+  color: white;
+}
+
+.player-score.active-player .player-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.player-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 10px;
+}
+
+.player-points {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #667eea;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.player-label {
+  font-size: 1rem;
+  color: #718096;
+  font-weight: 600;
+}
+
+/* Timer styles */
+.timer-container {
+  margin: 20px 0 30px 0;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.timer-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+.timer-warning {
+  color: #ff6b6b !important;
+  animation: pulse 1s infinite;
+}
+
+.timer-expired {
+  color: #e74c3c !important;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.timer-progress {
+  height: 8px;
+  border-radius: 4px;
+}
+
+/* Card styles */
+.word-progress {
+  height: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.duel-card {
+  border: none;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.duel-card-container-fullscreen .duel-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.duel-card-container-fullscreen .duel-header,
+.duel-card-container-fullscreen .word-progress,
+.duel-card-container-fullscreen .current-player-indicator {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.duel-card-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.word-counter {
+  font-size: 1.2rem;
+  font-weight: 700;
+  opacity: 1;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.current-turn {
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.95);
+  color: #dc2626;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  text-shadow: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes currentTurnPulse {
+  from {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(255, 99, 71, 0.4);
+  }
+  to {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 99, 71, 0.6);
+  }
+}
+
+.current-player-name {
+  background: #dc2626;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+@keyframes playerNameHighlight {
+  from {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(255, 99, 71, 0.4);
+  }
+  to {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 99, 71, 0.6);
+  }
+}
+
+.duel-card-body {
+  padding: 40px;
+  text-align: center;
+}
+
+.word-display {
+  margin-bottom: 10px;
+}
+
+/* Layout da palavra e indicador de jogador lado a lado */
+.word-and-player-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.word-display {
+  flex: 1;
+  min-width: 300px;
+}
+
+.word-text {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #2d3748;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  line-height: 1.1;
+}
+
+/* Indicador de jogador ao lado da palavra */
+.player-turn-card-side {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  animation: currentTurnPulse 2s infinite alternate;
+  min-width: 200px;
+}
+
+.player-turn-card-side .turn-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.player-turn-card-side .turn-text {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.player-turn-card-side .turn-player-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.question-text {
+  font-size: 1.5rem;
+  color: #4a5568;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+/* Botões de resposta */
+.answer-buttons {
+  margin-bottom: 30px;
+}
+
+.answer-btn {
+  border: none;
+  border-radius: 20px;
+  padding: 20px 30px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.answer-btn:hover:not(.disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.answer-btn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.correct-btn {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  color: white;
+}
+
+.incorrect-btn {
+  background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+  color: white;
+}
+
+/* Botões dos jogadores */
+.player-buttons {
+  margin-bottom: 30px;
+}
+
+.player-btn {
+  border: none;
+  border-radius: 20px;
+  padding: 20px 30px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  color: white;
+}
+
+.player-btn:hover:not(.disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.player-btn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.nobody-btn {
+  border: 2px solid #cbd5e0;
+  background: transparent;
+  color: #718096;
+  border-radius: 20px;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.nobody-btn:hover:not(.disabled) {
+  border-color: #a0aec0;
+  background: #f7fafc;
+  transform: translateY(-2px);
+}
+
+.answer-icon,
+.player-btn-icon {
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+/* Feedback */
+.feedback-message {
+  margin-top: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+  border-radius: 15px;
+  border-left: 5px solid #38b2ac;
+}
+
+.next-word-info {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c7a7b;
+}
+
+/* Indicador de vez do jogador */
+.current-player-indicator {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.player-turn-card {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: white;
+  padding: 25px 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+  animation: turnCardPulse 2s ease-in-out infinite alternate;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes turnCardPulse {
+  from {
+    transform: scale(1);
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+  }
+  to {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(220, 38, 38, 0.6);
+  }
+}
+
+.turn-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.turn-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.turn-player-name {
+  font-size: 2rem;
+  font-weight: 900;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Scoreboard na parte inferior */
+.scoreboard-bottom {
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+.player-score-bottom {
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border: 3px solid #e2e8f0;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.player-score-bottom.active-player {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  border-color: #dc2626;
+  color: white;
+}
+
+.player-score-bottom.active-player .player-name,
+.player-score-bottom.active-player .player-points,
+.player-score-bottom.active-player .player-label {
+  color: white;
+}
+
+/* Tabela para mais de 2 jogadores */
+.scoreboard-table {
+  margin-top: 30px;
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.scoreboard-title {
+  text-align: center;
+  color: #2d3748;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.players-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.players-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.players-table th {
+  padding: 15px 12px;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  font-size: 0.95rem;
+}
+
+.players-table td {
+  padding: 15px 12px;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+  font-weight: 600;
+}
+
+.players-table tr:last-child td {
+  border-bottom: none;
+}
+
+.players-table .active-row {
+  background: linear-gradient(135deg, #dc262620 0%, #b91c1c20 100%);
+  border-left: 4px solid #dc2626;
+}
+
+.position-cell {
+  font-size: 1.2rem;
+  width: 80px;
+}
+
+.player-cell {
+  font-weight: 700;
+  color: #2d3748;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.score-cell {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #667eea;
+  width: 80px;
+}
+
+.status-cell {
+  width: 120px;
+}
+
+.playing-badge {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.waiting-badge {
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+  color: #4a5568;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Desktop/Tela cheia - Espaçamentos aumentados */
+@media (min-width: 992px) {
+  .scoreboard {
+    margin-bottom: 60px;
+    padding: 0 40px;
+  }
+  
+  .player-score {
+    padding: 45px 40px;
+    margin-bottom: 35px;
+  }
+  
+  .player-name {
+    margin-bottom: 20px;
+  }
+  
+  .player-points {
+    margin-bottom: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .scoreboard {
+    margin-bottom: 80px;
+    padding: 0 60px;
+  }
+  
+  .player-score {
+    padding: 50px 45px;
+    margin-bottom: 40px;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .duel-card-container {
+    padding: 15px;
+  }
+  
+  .duel-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  
+  .header-controls {
+    justify-content: center;
+  }
+  
+  .theme-badge {
+    text-align: center;
+  }
+    .back-to-home-btn {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  
+  .scoreboard {
+    margin-bottom: 25px;
+    padding: 0 10px;
+  }
+  
+  .player-score {
+    margin-bottom: 15px;
+    padding: 20px 15px;
+  }
+  
+  .player-points {
+    font-size: 2.5rem;
+  }
+  
+  /* Mobile - Indicador de vez do jogador */
+  .player-turn-card {
+    padding: 20px 25px;
+  }
+  
+  .turn-icon {
+    font-size: 2rem;
+  }
+  
+  .turn-text {
+    font-size: 1rem;
+  }
+  
+  .turn-player-name {
+    font-size: 1.5rem;
+  }
+  
+  /* Mobile - Scoreboard inferior */
+  .scoreboard-bottom {
+    padding: 0 10px;
+  }
+  
+  .player-score-bottom {
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+  
+  /* Mobile - Tabela */
+  .scoreboard-table {
+    padding: 15px;
+    margin-top: 20px;
+  }
+  
+  .players-table th,
+  .players-table td {
+    padding: 10px 6px;
+    font-size: 0.85rem;
+  }
+  
+  .position-cell {
+    width: 60px;
+    font-size: 1rem;
+  }
+  
+  .score-cell {
+    font-size: 1.1rem;
+    width: 60px;
+  }
+  
+  .status-cell {
+    width: 100px;
+  }
+  
+  .playing-badge,
+  .waiting-badge {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+    .player-cell {
+    padding-left: 10px;
+  }
+}
+
+/* Responsividade para o layout palavra e jogador */
+@media (max-width: 768px) {
+  .word-and-player-display {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .word-display {
+    min-width: auto;
+  }
+  
+  .word-text {
+    font-size: 3rem;
+  }
+  
+  .player-turn-card-side {
+    min-width: auto;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  
+  .player-turn-card-side .turn-icon {
+    font-size: 1.5rem;
+  }
+  
+  .player-turn-card-side .turn-player-name {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .word-text {
+    font-size: 2.5rem;
+  }
+  
+  .player-turn-card-side {
+    padding: 15px;
+  }
+}
+
+/* Media queries específicas para fullscreen */
+@media (max-width: 768px) {
+  .duel-card-container-fullscreen {
+    padding: 15px;
+  }
+  
+  .duel-card-container-fullscreen .duel-card {
+    width: 95%;
+  }
+  
+  .word-text {
+    font-size: 2.5rem !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .duel-card-container-fullscreen .duel-card {
+    max-width: 1400px;
+    width: 80%;
+  }
+  
+  .duel-card-body {
+    padding: 50px !important;
+  }
+  
+  .word-text {
+    font-size: 5rem !important;
+  }
+}
