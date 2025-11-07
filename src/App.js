@@ -27,7 +27,8 @@ function App() {
     soundEnabled: true,
     animationsEnabled: true,
     visualTheme: 'default',
-    timeLimit: 30 // tempo limite em segundos, 0 = sem limite
+    timeLimit: 30, // tempo limite em segundos, 0 = sem limite
+    autoAdvance: false // avanço automático para próxima palavra
   });
 
   const { playCorrectSound, playIncorrectSound, playClickSound } = useSound();
@@ -225,6 +226,7 @@ function App() {
                   onAnswer={handleAnswer}
                   timeLimit={settings.timeLimit}
                   onBackToHome={handleRestart}
+                  autoAdvance={settings.autoAdvance}
                 />
               ) : (
                 <DuelCard
@@ -238,6 +240,7 @@ function App() {
                   onAnswer={handleDuelAnswer}
                   onBackToHome={handleRestart}
                   timeLimit={settings.timeLimit}
+                  autoAdvance={settings.autoAdvance}
                 />
               )}
             </>

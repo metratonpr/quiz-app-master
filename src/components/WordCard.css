@@ -216,6 +216,7 @@
   border-radius: 15px;
   border-left: 4px solid #4facfe;
   animation: slideInUp 0.5s ease;
+  text-align: center;
 }
 
 @keyframes slideInUp {
@@ -229,13 +230,63 @@
   }
 }
 
-.next-word-info {
-  color: #4a5568;
-  font-weight: 600;
-  font-size: 1.1rem;
+.manual-advance {
+  margin-top: 20px;
 }
 
-/* Timer Styles */
+.advance-btn {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  border: none;
+  border-radius: 20px;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+  box-shadow: 0 8px 25px rgba(66, 153, 225, 0.3);
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.advance-btn:hover {
+  background: linear-gradient(135deg, #3182ce 0%, #2c5aa0 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(66, 153, 225, 0.4);
+}
+
+.advance-btn:active {
+  transform: translateY(0);
+}
+
+.advance-icon {
+  font-size: 1.3rem;
+  margin-right: 10px;
+}
+
+.advance-text {
+  font-weight: 700;
+}
+
+.answer-recorded {
+  color: #48bb78;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 10px;
+  background: rgba(72, 187, 120, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(72, 187, 120, 0.3);
+}
+
+.next-word-info {
+  color: #4a5568;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 15px;
+  background: rgba(74, 85, 104, 0.1);
+  border-radius: 10px;
+}
+
 .timer-container {
   margin-bottom: 20px;
   padding: 15px;

@@ -12,17 +12,18 @@ const DuelCard = ({
   turnBased,
   onAnswer,
   onBackToHome,
-  timeLimit = 0
-}) => {
-  const [answered, setAnswered] = useState(false);
+  timeLimit = 0,
+  autoAdvance = false
+}) => {  const [answered, setAnswered] = useState(false);
   const [timeLeft, setTimeLeft] = useState(timeLimit);
   const [timerActive, setTimerActive] = useState(timeLimit > 0);
-
+  const [showNextButton, setShowNextButton] = useState(false);
   // Reset state when word changes
   useEffect(() => {
     setAnswered(false);
     setTimeLeft(timeLimit);
     setTimerActive(timeLimit > 0);
+    setShowNextButton(false);
   }, [word, currentWord, timeLimit]);
 
   // Timer effect
@@ -42,13 +43,25 @@ const DuelCard = ({
 
     return () => clearInterval(timer);
   }, [timerActive, answered, timeLimit, onAnswer]);
-
   const handleAnswer = (playerIndex, isCorrect) => {
     if (answered) return;
     
     setAnswered(true);
     setTimerActive(false);
-    onAnswer(playerIndex, isCorrect);
+    
+    if (autoAdvance) {
+      // Avanço automático após 2 segundos
+      setTimeout(() => {
+        onAnswer(playerIndex, isCorrect);
+      }, 2000);
+    } else {
+      // Modo manual - mostra botão "Próxima"
+      setShowNextButton(true);
+    }
+  };
+
+  const handleNextWord = () => {
+    onAnswer(null, false); // Chama onAnswer para avançar
   };
 
   const progress = (currentWord / totalWords) * 100;
@@ -238,17 +251,33 @@ const DuelCard = ({
                 </tbody>
               </table>
             </div>
-          )}
-
-          {answered && (
+          )}          {answered && (
             <div className="feedback-message">
-              <div className="next-word-info">
-                {timeLeft === 0 ? (
-                  <>⏰ Tempo esgotado! Próxima palavra em instantes...</>
-                ) : (
-                  <>⏳ Próxima palavra em instantes...</>
-                )}
-              </div>
+              {autoAdvance ? (
+                <div className="next-word-info">
+                  {timeLeft === 0 ? (
+                    <>⏰ Tempo esgotado! Próxima palavra em instantes...</>
+                  ) : (
+                    <>⏳ Próxima palavra em instantes...</>
+                  )}
+                </div>
+              ) : showNextButton ? (
+                <div className="manual-advance">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="advance-btn"
+                    onClick={handleNextWord}
+                  >
+                    <span className="advance-icon">⏭️</span>
+                    <span className="advance-text">AVANÇAR</span>
+                  </Button>
+                </div>
+              ) : (
+                <div className="answer-recorded">
+                  ✓ Resposta registrada
+                </div>
+              )}
             </div>
           )}
         </Card.Body>

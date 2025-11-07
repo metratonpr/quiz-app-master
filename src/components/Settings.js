@@ -69,6 +69,26 @@ const Settings = ({ show, onHide, settings, onSettingsChange }) => {
             </Col>
           </Row>
 
+          <Row className="mb-4">
+            <Col>
+              <h5 className="section-title">⏭️ Avanço</h5>
+              <Form.Check
+                type="switch"
+                id="auto-advance-switch"
+                label="Avanço automático para próxima palavra"
+                checked={settings.autoAdvance || false}
+                onChange={(e) => handleChange('autoAdvance', e.target.checked)}
+                className="custom-switch"
+              />
+              <Form.Text className="text-muted">
+                {settings.autoAdvance 
+                  ? "As palavras avançam automaticamente após resposta" 
+                  : "Necessário clicar para avançar para próxima palavra"
+                }
+              </Form.Text>
+            </Col>
+          </Row>
+
           <Row className="mb-3">
             <Col>
               <h5 className="section-title">🎨 Tema Visual</h5>

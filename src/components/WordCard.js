@@ -10,17 +10,20 @@ const WordCard = ({
   correctAnswers, 
   onAnswer,
   timeLimit = 0,
-  onBackToHome
+  onBackToHome,
+  autoAdvance = false
 }) => {
   const [answered, setAnswered] = useState(false);
   const [timeLeft, setTimeLeft] = useState(timeLimit);
   const [timerActive, setTimerActive] = useState(timeLimit > 0);
+  const [showNextButton, setShowNextButton] = useState(false);
 
   // Reset answered state when word changes
   useEffect(() => {
     setAnswered(false);
     setTimeLeft(timeLimit);
     setTimerActive(timeLimit > 0);
+    setShowNextButton(false);
   }, [word, currentWord, timeLimit]);
 
   // Timer effect
@@ -47,7 +50,20 @@ const WordCard = ({
     
     setAnswered(true);
     setTimerActive(false);
-    onAnswer(isCorrect);
+    
+    if (autoAdvance) {
+      // Avanço automático após 2 segundos
+      setTimeout(() => {
+        onAnswer(isCorrect);
+      }, 2000);
+    } else {
+      // Modo manual - mostra botão "Avançar"
+      setShowNextButton(true);
+    }
+  };
+
+  const handleNextWord = () => {
+    onAnswer(false); // Chama onAnswer para avançar
   };
 
   const progress = (currentWord / totalWords) * 100;
@@ -145,13 +161,31 @@ const WordCard = ({
 
           {answered && (
             <div className="feedback-message">
-              <div className="next-word-info">
-                {timeLeft === 0 ? (
-                  <>⏰ Tempo esgotado! Próxima palavra em instantes...</>
-                ) : (
-                  <>⏳ Próxima palavra em instantes...</>
-                )}
-              </div>
+              {autoAdvance ? (
+                <div className="next-word-info">
+                  {timeLeft === 0 ? (
+                    <>⏰ Tempo esgotado! Próxima palavra em instantes...</>
+                  ) : (
+                    <>⏳ Próxima palavra em instantes...</>
+                  )}
+                </div>
+              ) : showNextButton ? (
+                <div className="manual-advance">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="advance-btn"
+                    onClick={handleNextWord}
+                  >
+                    <span className="advance-icon">⏭️</span>
+                    <span className="advance-text">AVANÇAR</span>
+                  </Button>
+                </div>
+              ) : (
+                <div className="answer-recorded">
+                  ✓ Resposta registrada
+                </div>
+              )}
             </div>
           )}
         </Card.Body>
