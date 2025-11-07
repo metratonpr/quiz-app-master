@@ -1,0 +1,142 @@
+{
+  "themes": [
+    {
+      "id": "gaming",
+      "name": "🎮 Gaming",
+      "color": "#8B5CF6",
+      "gradient": "linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%)",
+      "questions": [
+        { "id": 1, "question": "Minecraft é o jogo mais vendido da história", "answer": true },
+        { "id": 2, "question": "O protagonista de GTA V se chama Tommy Vercetti", "answer": false },
+        { "id": 3, "question": "A Nintendo criou o Super Mario", "answer": true },
+        { "id": 4, "question": "Fortnite foi lançado em 2015", "answer": false },
+        { "id": 5, "question": "Call of Duty é uma franquia de FPS", "answer": true },
+        { "id": 6, "question": "League of Legends é um MOBA", "answer": true },
+        { "id": 7, "question": "PlayStation 5 foi lançado em 2021", "answer": false },
+        { "id": 8, "question": "Among Us se tornou viral em 2020", "answer": true },
+        { "id": 9, "question": "FIFA é publicado pela EA Sports", "answer": true },
+        { "id": 10, "question": "Counter-Strike foi criado pela Valve", "answer": true },
+        { "id": 11, "question": "Pokémon GO usa realidade aumentada", "answer": true },
+        { "id": 12, "question": "The Last of Us é exclusivo do Xbox", "answer": false },
+        { "id": 13, "question": "Apex Legends é Battle Royale", "answer": true },
+        { "id": 14, "question": "Zelda é o nome do protagonista", "answer": false },
+        { "id": 15, "question": "Rocket League mistura carros e futebol", "answer": true }
+      ]
+    },
+    {
+      "id": "music",
+      "name": "🎵 Música",
+      "color": "#10B981",
+      "gradient": "linear-gradient(135deg, #10B981 0%, #059669 100%)",
+      "questions": [
+        { "id": 1, "question": "Taylor Swift ganhou múltiplos Grammys", "answer": true },
+        { "id": 2, "question": "BTS é uma boy band japonesa", "answer": false },
+        { "id": 3, "question": "Spotify é a maior plataforma de streaming", "answer": true },
+        { "id": 4, "question": "Anitta é brasileira", "answer": true },
+        { "id": 5, "question": "Ed Sheeran toca guitarra", "answer": true },
+        { "id": 6, "question": "Billie Eilish tem mais de 30 anos", "answer": false },
+        { "id": 7, "question": "The Weeknd é canadense", "answer": true },
+        { "id": 8, "question": "Ariana Grande já foi atriz", "answer": true },
+        { "id": 9, "question": "Post Malone faz rap", "answer": true },
+        { "id": 10, "question": "Dua Lipa é americana", "answer": false },
+        { "id": 11, "question": "Justin Bieber começou no YouTube", "answer": true },
+        { "id": 12, "question": "Olivia Rodrigo ganhou Grammy em 2022", "answer": true },
+        { "id": 13, "question": "Bad Bunny canta em inglês", "answer": false },
+        { "id": 14, "question": "Drake é também ator", "answer": true },
+        { "id": 15, "question": "Lorde é da Nova Zelândia", "answer": true }
+      ]
+    },
+    {
+      "id": "movies",
+      "name": "🎬 Filmes & Séries",
+      "color": "#F59E0B",
+      "gradient": "linear-gradient(135deg, #F59E0B 0%, #D97706 100%)",
+      "questions": [
+        { "id": 1, "question": "Stranger Things se passa nos anos 80", "answer": true },
+        { "id": 2, "question": "Avengers: Endgame é o filme mais lucrativo", "answer": false },
+        { "id": 3, "question": "Netflix foi criada em 1997", "answer": true },
+        { "id": 4, "question": "Game of Thrones tem 10 temporadas", "answer": false },
+        { "id": 5, "question": "Marvel e DC são da mesma empresa", "answer": false },
+        { "id": 6, "question": "Friends terminou em 2004", "answer": true },
+        { "id": 7, "question": "Avatar é o filme mais caro já feito", "answer": false },
+        { "id": 8, "question": "The Office é uma série americana", "answer": true },
+        { "id": 9, "question": "Harry Potter tem 8 filmes", "answer": true },
+        { "id": 10, "question": "La Casa de Papel é espanhola", "answer": true },
+        { "id": 11, "question": "Breaking Bad tem 6 temporadas", "answer": false },
+        { "id": 12, "question": "Disney+ foi lançado em 2019", "answer": true },
+        { "id": 13, "question": "The Mandalorian é de Star Wars", "answer": true },
+        { "id": 14, "question": "Squid Game é coreana", "answer": true },
+        { "id": 15, "question": "Black Mirror é da Netflix", "answer": false }
+      ]
+    },
+    {
+      "id": "social",
+      "name": "📱 Redes Sociais",
+      "color": "#EF4444",
+      "gradient": "linear-gradient(135deg, #EF4444 0%, #DC2626 100%)",
+      "questions": [
+        { "id": 1, "question": "TikTok foi criado na China", "answer": true },
+        { "id": 2, "question": "Instagram foi comprado pelo Facebook", "answer": true },
+        { "id": 3, "question": "Twitter limita posts a 280 caracteres", "answer": true },
+        { "id": 4, "question": "YouTube foi criado em 2005", "answer": true },
+        { "id": 5, "question": "Snapchat foi o primeiro com Stories", "answer": true },
+        { "id": 6, "question": "WhatsApp é grátis para sempre", "answer": true },
+        { "id": 7, "question": "LinkedIn é para networking profissional", "answer": true },
+        { "id": 8, "question": "Pinterest é para receitas apenas", "answer": false },
+        { "id": 9, "question": "Discord foi criado para gamers", "answer": true },
+        { "id": 10, "question": "Twitch é só para games", "answer": false },
+        { "id": 11, "question": "BeReal mostra fotos em tempo real", "answer": true },
+        { "id": 12, "question": "Clubhouse é baseado em áudio", "answer": true },
+        { "id": 13, "question": "Reddit tem subreddits", "answer": true },
+        { "id": 14, "question": "Telegram é mais seguro que WhatsApp", "answer": true },
+        { "id": 15, "question": "OnlyFans é só para conteúdo adulto", "answer": false }
+      ]
+    },
+    {
+      "id": "tech",
+      "name": "💻 Tecnologia",
+      "color": "#3B82F6",
+      "gradient": "linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)",
+      "questions": [
+        { "id": 1, "question": "iPhone foi lançado em 2007", "answer": true },
+        { "id": 2, "question": "Google foi fundado por 3 pessoas", "answer": false },
+        { "id": 3, "question": "ChatGPT é da OpenAI", "answer": true },
+        { "id": 4, "question": "Tesla faz apenas carros", "answer": false },
+        { "id": 5, "question": "Windows 11 existe", "answer": true },
+        { "id": 6, "question": "Amazon começou vendendo livros", "answer": true },
+        { "id": 7, "question": "Bitcoin foi criado em 2009", "answer": true },
+        { "id": 8, "question": "5G é mais rápido que 4G", "answer": true },
+        { "id": 9, "question": "Apple criou o primeiro smartphone", "answer": false },
+        { "id": 10, "question": "Linux é grátis", "answer": true },
+        { "id": 11, "question": "Meta é o novo nome do Facebook", "answer": true },
+        { "id": 12, "question": "Alexa é da Amazon", "answer": true },
+        { "id": 13, "question": "Chrome é o navegador mais usado", "answer": true },
+        { "id": 14, "question": "PlayStation usa processador AMD", "answer": true },
+        { "id": 15, "question": "QR Code foi inventado no Japão", "answer": true }
+      ]
+    },
+    {
+      "id": "memes",
+      "name": "😂 Memes & Internet",
+      "color": "#EC4899",
+      "gradient": "linear-gradient(135deg, #EC4899 0%, #DB2777 100%)",
+      "questions": [
+        { "id": 1, "question": "O meme 'This is Fine' mostra um cachorro", "answer": true },
+        { "id": 2, "question": "Rick Roll usa música dos Queen", "answer": false },
+        { "id": 3, "question": "Grumpy Cat morreu em 2019", "answer": true },
+        { "id": 4, "question": "O Drake meme tem 4 painéis", "answer": false },
+        { "id": 5, "question": "Woman Yelling at Cat ficou viral em 2019", "answer": true },
+        { "id": 6, "question": "Pepe the Frog é verde", "answer": true },
+        { "id": 7, "question": "Doge usa foto de um Shiba Inu", "answer": true },
+        { "id": 8, "question": "Baby Yoda é do Star Wars", "answer": true },
+        { "id": 9, "question": "Stonks usa inglês correto", "answer": false },
+        { "id": 10, "question": "Among Us criou o meme 'Sus'", "answer": true },
+        { "id": 11, "question": "Karen é um meme sobre mulheres", "answer": true },
+        { "id": 12, "question": "OK Boomer virou viral em 2020", "answer": false },
+        { "id": 13, "question": "Nyan Cat tem música", "answer": true },
+        { "id": 14, "question": "Distracted Boyfriend tem 3 pessoas", "answer": true },
+        { "id": 15, "question": "Hide the Pain Harold sorri", "answer": true }
+      ]
+    }
+  ]
+}

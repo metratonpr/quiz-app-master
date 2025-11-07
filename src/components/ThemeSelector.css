@@ -1,0 +1,69 @@
+.theme-selector {
+  padding: 20px 0;
+}
+
+.theme-selector h2 {
+  color: #2d3748;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.theme-selector .emoji {
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+.theme-card {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  height: 120px;
+  position: relative;
+}
+
+.theme-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.theme-card.selected {
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #007bff;
+  transform: scale(1.05) !important;
+}
+
+.theme-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 15px;
+}
+
+.theme-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.theme-questions {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .theme-card {
+    height: 100px;
+  }
+  
+  .theme-name {
+    font-size: 1rem;
+  }
+  
+  .theme-questions {
+    font-size: 0.8rem;
+  }
+}

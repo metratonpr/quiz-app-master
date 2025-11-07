@@ -1,0 +1,251 @@
+.scoreboard-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.scoreboard-card {
+  border: none;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  animation: slideInUp 0.6s ease;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scoreboard-header {
+  padding: 30px 20px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.scoreboard-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.team-result {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.scoreboard-body {
+  padding: 30px;
+}
+
+.score-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.final-score {
+  margin-bottom: 30px;
+}
+
+.score-label {
+  display: block;
+  color: #718096;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.score-value {
+  display: block;
+  font-size: 4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: scoreCounter 1s ease;
+}
+
+@keyframes scoreCounter {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.stats-row {
+  margin: 25px 0;
+}
+
+.stat-item {
+  padding: 15px;
+  background: #f7fafc;
+  border-radius: 15px;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  color: #718096;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.progress-section {
+  margin: 25px 0;
+}
+
+.progress-label {
+  color: #4a5568;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.performance-bar {
+  border-radius: 10px;
+  background: #e2e8f0;
+}
+
+.performance-bar .progress-bar {
+  border-radius: 10px;
+  background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+  transition: width 1s ease;
+}
+
+.performance-message {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.theme-info {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.theme-badge {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.action-buttons {
+  margin-bottom: 25px;
+}
+
+.action-btn {
+  width: 100%;
+  padding: 15px;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.action-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.play-again-btn {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  border: none;
+}
+
+.new-theme-btn {
+  border: 2px solid #4facfe;
+  color: #4facfe;
+  background: transparent;
+}
+
+.new-theme-btn:hover {
+  background: #4facfe;
+  color: white;
+}
+
+.share-section {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.share-text {
+  color: #718096;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.share-message {
+  background: #f7fafc;
+  padding: 15px;
+  border-radius: 15px;
+  font-weight: 600;
+  color: #4a5568;
+  border: 2px dashed #cbd5e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.share-message:hover {
+  background: #edf2f7;
+  border-color: #a0aec0;
+}
+
+@media (max-width: 768px) {
+  .scoreboard-container {
+    padding: 15px;
+  }
+  
+  .scoreboard-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .score-value {
+    font-size: 3rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .performance-message {
+    font-size: 1.1rem;
+  }
+  
+  .action-btn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}

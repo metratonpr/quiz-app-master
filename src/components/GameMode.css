@@ -1,0 +1,88 @@
+.game-mode {
+  padding: 20px 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.game-mode h2 {
+  color: #2d3748;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.game-mode .emoji {
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+.subtitle {
+  color: #718096;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.mode-card {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 200px;
+}
+
+.mode-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.mode-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 30px;
+}
+
+.mode-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.mode-description {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.mode-button {
+  border-radius: 25px;
+  font-weight: 600;
+  padding: 12px 30px;
+  border: none;
+  color: #2d3748 !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  transition: all 0.2s ease;
+}
+
+.mode-button:hover {
+  background: rgba(255, 255, 255, 1) !important;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .mode-card {
+    height: 180px;
+  }
+  
+  .mode-title {
+    font-size: 1.5rem;
+  }
+  
+  .mode-description {
+    font-size: 0.9rem;
+  }
+}

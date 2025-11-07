@@ -1,0 +1,196 @@
+.settings-modal .modal-content {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.settings-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-bottom: none;
+  padding: 20px 25px;
+}
+
+.settings-header .modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.settings-icon {
+  font-size: 1.3em;
+  margin-right: 10px;
+}
+
+.settings-header .btn-close {
+  filter: invert(1);
+  opacity: 0.8;
+}
+
+.settings-body {
+  padding: 25px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.section-title {
+  color: #4a5568;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-switch {
+  margin-bottom: 15px;
+}
+
+.custom-switch .form-check-input {
+  width: 3em;
+  height: 1.5em;
+  border-radius: 1em;
+  background-color: #e2e8f0;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.custom-switch .form-check-input:checked {
+  background-color: #4facfe;
+  border-color: #4facfe;
+  background-image: none;
+}
+
+.custom-switch .form-check-label {
+  font-weight: 500;
+  color: #4a5568;
+  margin-left: 10px;
+}
+
+.custom-range {
+  accent-color: #4facfe;
+}
+
+.range-value {
+  text-align: center;
+  font-weight: 600;
+  color: #4facfe;
+  margin-top: 5px;
+  font-size: 1.1rem;
+}
+
+.custom-select {
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.custom-select:focus {
+  border-color: #4facfe;
+  box-shadow: 0 0 0 0.2rem rgba(79, 172, 254, 0.25);
+}
+
+.theme-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.theme-option {
+  padding: 15px 10px;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+  font-size: 0.9rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.theme-option:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.theme-option.selected {
+  border-color: white;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.settings-footer {
+  border-top: 1px solid #e2e8f0;
+  padding: 20px 25px;
+  background: #f8fafc;
+}
+
+.save-btn {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  border: none;
+  border-radius: 10px;
+  padding: 12px 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 172, 254, 0.3);
+}
+
+/* Scrollbar customizada para o modal */
+.settings-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.settings-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.settings-body::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 3px;
+}
+
+.settings-body::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+@media (max-width: 768px) {
+  .settings-body {
+    padding: 20px;
+  }
+  
+  .theme-selector-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .theme-option {
+    padding: 12px 8px;
+    font-size: 0.8rem;
+  }
+}
+
+.time-select {
+  border-radius: 10px;
+  padding: 10px 15px;
+  border: 2px solid #e2e8f0;
+  background: white;
+  font-weight: 500;
+  transition: border-color 0.3s ease;
+}
+
+.time-select:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
