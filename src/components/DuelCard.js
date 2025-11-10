@@ -40,7 +40,7 @@ const DuelCard = ({
         return prevTime - 1;
       });
     }, 1000);
-
+    
     return () => clearInterval(timer);
   }, [timerActive, answered, timeLimit, onAnswer]);
   const handleAnswer = (playerIndex, isCorrect) => {
